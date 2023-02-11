@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const apiRoutes = require('./routes/index');
 const db = require('./models/index');
 
+
 const setupAndServerStart = async () => {
 
     app.use(bodyParser.json());
@@ -15,7 +16,6 @@ const setupAndServerStart = async () => {
 
     app.listen(PORT , () => {
         console.log(`Server started and listening to ${PORT}`)
-
         if(process.env.DB_SYNC){
             db.sequelize.sync({alter:true});
         }
